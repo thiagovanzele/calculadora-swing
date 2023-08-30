@@ -48,9 +48,9 @@ public class Teclado extends JPanel implements ActionListener {
 		adicionarBotao("-", CINZA_ESCURO, c, 3, 2);
 
 		// Linha 4
-		adicionarBotao("3", CINZA_CLARO, c, 0, 3);
+		adicionarBotao("1", CINZA_CLARO, c, 0, 3);
 		adicionarBotao("2", CINZA_CLARO, c, 1, 3);
-		adicionarBotao("1", CINZA_CLARO, c, 2, 3);
+		adicionarBotao("3", CINZA_CLARO, c, 2, 3);
 		adicionarBotao("+", CINZA_ESCURO, c, 3, 3);
 
 		// Linha 5
