@@ -3,11 +3,16 @@ package br.com.cod3r.calc.visao;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import br.com.cod3r.calc.modelo.Memoria;
+
 @SuppressWarnings("serial")
-public class Teclado extends JPanel {
+public class Teclado extends JPanel implements ActionListener {
 
 	private final Color CINZA_ESCURO = new Color(50, 50, 50, 255);
 	private final Color CINZA_CLARO = new Color(101, 101, 101, 255);
@@ -34,7 +39,7 @@ public class Teclado extends JPanel {
 		adicionarBotao("7", CINZA_CLARO, c, 0, 1);
 		adicionarBotao("8", CINZA_CLARO, c, 1, 1);
 		adicionarBotao("9", CINZA_CLARO, c, 2, 1);
-		adicionarBotao("X", CINZA_ESCURO, c, 3, 1);
+		adicionarBotao("x", CINZA_ESCURO, c, 3, 1);
 
 		// Linha 3
 		adicionarBotao("4", CINZA_CLARO, c, 0, 2);
@@ -61,7 +66,16 @@ public class Teclado extends JPanel {
 		c.gridx = x;
 		c.gridy = y;
 		Botao botao = new Botao(texto, cor);
+		botao.addActionListener(this);
 		add(botao, c);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() instanceof JButton) {
+			JButton botao = (JButton) e.getSource();
+			Memoria.getInstancia().processarComando(botao.getText());
+		}
 	}
 }
